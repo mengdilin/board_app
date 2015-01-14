@@ -1,0 +1,9 @@
+<%=provide(:title, 'Board')%>
+<h1>Board</h1>
+
+<ul class="col-md-6">
+    <% @microposts.each do |micropost| %>
+        <li><%= micropost.username %></li>
+        <li><%= micropost.content %></li>
+    <% end %>
+</ul>

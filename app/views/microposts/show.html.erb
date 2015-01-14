@@ -1,0 +1,41 @@
+<%=provide(:title, 'Board')%>
+
+<div class="container-fluid">
+    <div class="row">
+
+    <div class="col-xs-2 col-xs-offset-5">
+        
+        <h1>Board</h1>
+    </div>
+    </div>
+    <div class="row">
+
+    <div class="col-xs-6 col-xs-offset-2"> 
+<table class="table">
+    <tr><td>Username</td>
+        <td>Content</td>
+    </tr>
+    <% @microposts.each do |micropost| %>
+        <tr>
+        <td><%= micropost.username %></td>
+        <td><%= micropost.content %></td>
+    </tr>
+    <% end %>
+</table>
+</div>
+
+<div class="col-xs-2">
+    <%= form_for(Micropost.new, :url => url_for(:controller => 'microposts', :action => 'new')) do |f| %>
+        <div>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+    </div>
+    <div>
+        <%= f.label :content %>
+        <%= f.text_area :content, placeholder: "new post here..." %>
+        <%= f.submit "Post", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+</div>
+</div>
+</div>
